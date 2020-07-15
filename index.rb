@@ -16,11 +16,11 @@ require './src/domain/model/user'
 puts "Start processing.\n"
 
 puts 'load user data at id:1.'
-user1 = Domain::Model::User.find(1)
+user1 = Model::User.find(1)
 puts user1
 
 puts 'load user data at id:2.'
-user2 = Domain::Model::User.find(2)
+user2 = Model::User.find(2)
 puts user2
 
 puts "\nCalculate age difference to ID:1 from ID:2."
