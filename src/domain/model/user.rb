@@ -16,27 +16,10 @@ module Model
       @gender = gender
     end
 
-    # クラスメソッド
-    class << self
-      # 指定したIDのユーザを取得
-      # @params [Integer] id
-      # @return [Model::User]
-      def find(id)
-        json = File.open("#{File.expand_path(__dir__)}/../../../json/User.json").read
-
-        # jsonを変換
-        data_list = JSON.parse(json, symbolize_names: true)
-
-        # jsonをstructに変換
-        item = data_list.select { |i| i[:id] == id }.first
-        User.new(item[:id], item[:name], Date.parse(item[:birthday]), item[:gender])
-      end
-    end
-
     # インスタンスメソッド
 
     def to_s
-      "id: #{@id}, name: #{@name}, birthday: #{@birthday}, gender: #{@gender}"
+      "[<#{self.class}> id: #{@id}, name: #{@name}, birthday: #{@birthday}, gender: #{@gender}]"
     end
 
     # ユーザの年齢差を求める
