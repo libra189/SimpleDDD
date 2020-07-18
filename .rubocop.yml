@@ -9,6 +9,14 @@
 #
 # See https://docs.rubocop.org/rubocop/configuration
 
+AllCops:
+  Exclude:
+    - spec/**/*
+    - json/*
+    - Gemfile
+    - Gemfile.lock
+    - vendor/bundle/**/*
+
 Style/AsciiComments:
   Enabled: false
 Style/FrozenStringLiteralComment:
