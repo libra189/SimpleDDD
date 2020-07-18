@@ -4,10 +4,7 @@ module Model
   # User model class
   class User
     # クラス変数のgetter, setter
-    attr_reader :id
-    attr_reader :name
-    attr_reader :birthday
-    attr_reader :gender
+    attr_reader :id, :name, :birthday, :gender
 
     def initialize(id, name, birthday, gender)
       @id = id
