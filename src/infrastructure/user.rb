@@ -49,7 +49,7 @@ module Infrastructure
     # @params [Integer] id
     # @return [nil]
     def delete(id)
-      @data_list.delete_if{ |i| i[:id] == id }
+      @data_list.delete_if { |i| i[:id] == id }
     end
   end
 end
