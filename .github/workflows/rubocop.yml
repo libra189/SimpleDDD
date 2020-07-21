@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,7 +30,7 @@ jobs:
           key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gem-
-      
+
       - name: bundle install
         run: bundle install --path vendor/bundle
 
