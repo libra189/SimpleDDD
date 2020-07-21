@@ -15,8 +15,21 @@ module Model
 
     # インスタンスメソッド
 
+    # クラス情報を文字列化して返却
+    # @return [String]
     def to_s
       "[<#{self.class}> id: #{@id}, name: #{@name}, birthday: #{@birthday}, gender: #{@gender}]"
+    end
+
+    # クラス情報をHash化して返却
+    # @return [Hash]
+    def to_h
+      {
+        id: @id,
+        name: @name,
+        birthday: @birthday,
+        gender: @gender
+      }
     end
 
     # ユーザの年齢差を求める
