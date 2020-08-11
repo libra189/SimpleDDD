@@ -50,6 +50,7 @@ module Infrastructure
     # @return [nil]
     def delete(id)
       @data_list.delete_if { |i| i[:id] == id }
+      nil
     end
   end
 end
