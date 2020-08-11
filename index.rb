@@ -11,26 +11,28 @@ Bundler.require
 
 # インフラ層の読み込み
 require "#{File.expand_path(__dir__)}/src/infrastructure/user"
+require "#{File.expand_path(__dir__)}/src/usecase/user"
 
 puts "Start processing.\n\n"
 
 # DI
 # インフラ層の初期化
 user_repository = Infrastructure::User.new("#{File.expand_path(__dir__)}/json/User.json")
+user_usecase = Usecase::User.new(user_repository)
 
 # インフラ層からデータを読み込み
 # @params [Model::User] user1
-user1 = user_repository.find(1)
+user1 = user_usecase.find_by_id(1)
 puts 'Load user data at id:1.'
 puts user1
 
 # @params [Model::User] user1
-user2 = user_repository.find(2)
+user2 = user_usecase.find_by_id(2)
 puts 'Load user data at id:2.'
 puts user2
 
 user_data = { id: 3, name: 'carol', birthday: '1993-02-24', gender: 'Femal' }
-user3 = user_repository.create(user_data)
+user3 = user_usecase.create(user_data)
 puts 'Create user data at id:3.'
 puts user3
 

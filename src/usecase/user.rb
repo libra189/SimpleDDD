@@ -6,26 +6,41 @@ module Usecase
 
   # User usercase class
   class User
-    # @params [String] name
+    # 引数で受け取ったinfrastructureインスタンスを設定
+    # @params [Repository::User] repository
+    def initialize(repository)
+      @id = 3 # インクリメントするために初期化
+      @user_repository = repository
+    end
+
+    # @params [Hash] user
     # @params [Date] birthday
     # @params [String] gender
     # @return [Model::User]
-    def create(name, birthday, gender)
+    def create(user)
+      item = user
+      item[:id] = @id
+      @id += 1
+
+      @user_repository.create(item)
     end
 
     # @params [Integer] id
     # @return [Model::User]
     def find_by_id(id)
+      @user_repository.find(id)
     end
 
     # @params [Model::User] user
     # @return [Model::User]
     def update(user)
+      @user_repository.update(user)
     end
 
     # @params [Integer] id
-    # @return [Integer]
+    # @return [nil]
     def delete(id)
+      @user_repository.delete(id)
     end
   end
 end
