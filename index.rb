@@ -16,7 +16,6 @@ require "#{File.expand_path(__dir__)}/src/usecase/user"
 puts "Start processing.\n\n"
 
 # DI
-# インフラ層の初期化
 user_repository = Infrastructure::User.new("#{File.expand_path(__dir__)}/json/User.json")
 user_usecase = Usecase::User.new(user_repository)
 
